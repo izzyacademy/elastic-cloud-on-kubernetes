@@ -1,0 +1,11 @@
+apiVersion: v2
+
+name: Elastic Operator Resources
+
+description: A Helm chart for deploying the Elastic Cluster
+
+type: application
+
+version: 1.0
+
+appVersion: 8.0

@@ -1,0 +1,14 @@
+version: 1
+replicaCount: 3
+
+application:
+  cluster: iqvia
+
+infrastructure:
+  namespace: elastic-system
+  appName: elasticsearch
+
+service:
+  type: LoadBalancer
+  elasticSearchPort: 9200
+  protocol: TCP

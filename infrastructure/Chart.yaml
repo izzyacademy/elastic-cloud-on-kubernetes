@@ -1,0 +1,11 @@
+apiVersion: v2
+
+name: Elastic Operator Infrastructure
+
+description: A Helm chart for deploying the initial and foundational resources for the Kubernetes cluster
+
+type: application
+
+version: 1.0
+
+appVersion: 8.0
