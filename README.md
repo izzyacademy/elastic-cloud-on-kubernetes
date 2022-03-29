@@ -37,6 +37,8 @@ curl -u "elastic:$PASSWORD" -k "https://localhost:9200"
 
 ```
 
+kubectl -n searchzone port-forward service/quickstart-es-http 9200
+
 https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-managing-compute-resources.html
 
 https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-autoscaling.html

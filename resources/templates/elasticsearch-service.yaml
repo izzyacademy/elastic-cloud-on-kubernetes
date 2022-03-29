@@ -14,7 +14,7 @@ spec:
     protocol: TCP
     name: cluster
   selector:
-    elasticsearch.k8s.elastic.co/statefulset-name: quickstart-es-searchmania
+    elastic: quickstart
 ---
 apiVersion: v1
 kind: Service
@@ -33,4 +33,4 @@ spec:
     protocol: TCP
     name: cluster
   selector:
-    elasticsearch.k8s.elastic.co/statefulset-name: quickstart-es-searchmania
+    elastic: quickstart
