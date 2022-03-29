@@ -3,24 +3,34 @@ apiVersion: v1
 kind: Service
 metadata:
   name: "elasticsearch-external"
+  namespace: {{ .Values.infrastructure.namespace }}
 spec:
   type: "{{ .Values.service.type }}"
   ports:
-  - port: {{ .Values.service.elasticSearchPort }}
+  - port: {{ .Values.service.httpPort }}
     protocol: TCP
+    name: http
+  - port: {{ .Values.service.clusterPort }}
+    protocol: TCP
+    name: cluster
   selector:
-    cluster: iqvia
+    elasticsearch.k8s.elastic.co/statefulset-name: quickstart-es-searchmania
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: "elasticsearch-internal"
+  namespace: {{ .Values.infrastructure.namespace }}
   annotations:
         service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
   type: "{{ .Values.service.type }}"
   ports:
-  - port: {{ .Values.service.elasticSearchPort }}
+  - port: {{ .Values.service.httpPort }}
     protocol: TCP
+    name: http
+  - port: {{ .Values.service.clusterPort }}
+    protocol: TCP
+    name: cluster
   selector:
-    cluster: iqvia
+    elasticsearch.k8s.elastic.co/statefulset-name: quickstart-es-searchmania

@@ -2,13 +2,14 @@ version: 1
 replicaCount: 3
 
 application:
-  cluster: iqvia
+  cluster: searchmania
 
 infrastructure:
-  namespace: elastic-system
+  namespace: searchzone
   appName: elasticsearch
 
 service:
   type: LoadBalancer
-  elasticSearchPort: 9200
+  httpPort: 9200
+  clusterPort: 9300
   protocol: TCP
